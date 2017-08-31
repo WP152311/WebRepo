@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+function check() {
+	var age = Number(document.getElementById('age').value);
+	var isMale = document.getElementById('male').checked;
+	var weight = Number(document.getElementById('weight').value);
+	
+	var comment = "헌혈 가능합니다";
+	if ((age < 16) || (age > 69)){
+		comment = "연령 부적합";
+	} else if ( ((isMale == true) && (weight < 50)) || ((isMale == false) && (weight < 45) ) ){
+		comment = "체중 미달";
+	}
+	
+	document.getElementById('result').innerHTML = comment;
+}
+</script>
+</head>
+<body>
+<h1>헌혈 조건 체크</h1>
+나이 : <input type="text" id="age">세<br>
+성별 : 남자<input type="radio" name="gender" id="male" checked> 여자<input type="radio" name="gender" id="female"><br>
+몸무게 : <input type="text" id="weight">kg<br>
+<input type="submit" onclick="check()" value="헌혈 조건 체크">
+<div id="result"></div>
+</body>
+</html>

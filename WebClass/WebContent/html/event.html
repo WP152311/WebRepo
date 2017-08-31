@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>JS 실습</title>
+<style>
+    .bgYellow{ background-color: yellow; }
+    .bgPink{ background-color: pink; }
+    .bgWhite{ background-color: white; }
+    .border { border: 3px solid red; }
+</style>
+<script>
+    function changeColor(color) {
+        c = document.getElementById('container');
+        c.setAttribute('class',color)
+    }
+    
+    function toUpperCase(e) {
+        e.value = w.value.toUpperCase();
+    }
+
+    function addBorder(e) {
+        e.setAttribute('class','border');
+    }
+
+    function removeBorder(e) {
+        e.removeAttribute('class');
+    }
+</script>
+</head>
+<body onload="alert('웹 페이지 로딩됨');">
+    <div id="container">
+        <input type="radio" name="color" onclick="changeColor('bgYellow')";>노란색
+        <input type="radio" name="color" onclick="changeColor('bgPink')";>핑크색
+        <input type="radio" name="color" onclick="changeColor('bgWhite')";>원래대로
+        <br>
+        <input type="text" id="word" onchange="toUpperCase(e);">
+
+        <div id="box" onmouseover="addBorder(this);" onmouseout="removeBorder(this);">
+            마우스를 위로 올려볼까나?
+        </div>
+    </div>
+</body>
+</html>

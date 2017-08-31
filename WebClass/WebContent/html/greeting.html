@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>JS 실습</title>
+<script>
+function korean() {
+	alert('안녕하세요!!');
+}
+function english() {
+	alert('Hello!!');
+}
+function chinese() {
+	alert('니 하오!!');
+} 
+function greeting(msg) {
+	document.getElementById('result').innerHTML = msg;
+}
+console.log('찍힐까?');
+console.log(document.getElementById("result"));
+</script>
+</head>
+<body>
+각 나라 인사말<br>
+<input type="button" onclick="greeting('안녕하세요!!')" value="한국">
+<input type="button" onclick="greeting('Hello!!')" value="미국">
+<input type="button" onclick="greeting('니 하오!!')" value="중국">
+<p id="result"></p>
+</body>
+</html>
