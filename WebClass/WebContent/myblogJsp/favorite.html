@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>vvsos1's Blog</title>
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M"
+    crossorigin="anonymous">
+
+</head>
+
+<!-- 웹페이지 처음 로딩때도 세션이 있는지 확인-->
+
+<body onload="checkSession()">
+
+  <!-- NavBar -->
+  <nav class="navbar navbar-expand-md navbar-light fixed-top bg-light">
+    <a class="navbar-brand" href="index.html">Blog</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault"
+      aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+
+    <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="hobby.html">Hobby</a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link " href="favorite.html">Favorite</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link " href="dream.html">Dream</a>
+        </li>
+      </ul>
+      <!-- 로그인 상태에 따라 바뀔 div -->
+      <div id="changableForm">
+      </div>
+      &nbsp;<button class="btn btn-outline-dark" onclick="regModal()">Sign Up</button>
+    </div>
+  </nav>
+
+  <!-- Main jumbotron for a primary marketing message or call to action -->
+  <div class="jumbotron">
+    <div class="container">
+      <h1 class="display-3">Favorite</h1>
+      <p>아직 아이디가 없으신가요?</p>
+    </div>
+  </div>
+
+  <div class="container">
+    <!-- Example row of columns -->
+    <img src="../image/pasta.jpg" alt="pasta"><br>
+    <h2>음식</h2>
+    <p>먹는게 최곱니다</p>
+    <img src="../image/laptop.jpg" alt="laptop"><br>
+    <h2>노트북</h2>
+    <p>제 삶의 이유죠</p>
+    <img src="../image/karaoke.jpg" alt="karaoke"><br>
+    <h2>노래</h2>
+    <p>한창 빠져있습니다</p>
+    <hr>
+
+  </div>
+  <!-- /container -->
+
+  <!-- 회원가입 Modal -->
+  <div class="modal fade" id="regModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">회원가입</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+        </div>
+        <!--Modal 회원가입 폼-->
+        <form name="regForm" id="regForm">
+          <div class="modal-body">
+            <!--아이디-->
+            <div class="form-group">
+              <label for="id">아이디</label>
+              <input type="text" class="form-control" id="id" placeholder="Enter ID" name="id" required>
+            </div>
+            <!--비밀번호-->
+            <div class="form-group">
+              <label for="password">비밀번호</label>
+              <input type="password" class="form-control" id="password" placeholder="Password" name="password" required>
+            </div>
+            <!--반-->
+            반 &nbsp;
+            <select class="custom-select mb-2 mr-sm-2 mb-sm-0" name="class">
+                        <option value="1">1반</option>
+                        <option value="2">2반</option>    <option value="3">3반</option>
+                        <option value="4">4반</option>
+                        <option value="5">5반</option>
+                        <option value="6">6반</option>
+                    </select>
+            <br>
+            <br>
+            <!--학년-->
+            학년 &nbsp;
+            <label class="custom-control custom-radio">
+                            <input id="radio1" name="grade" type="radio" class="custom-control-input" value="1" checked>
+                            <span class="custom-control-indicator"></span>
+                            <span class="custom-control-description">1학년</span>
+                    </label>
+            <label class="custom-control custom-radio">
+                            <input id="radio2" name="grade" type="radio" class="custom-control-input" value="2">
+                            <span class="custom-control-indicator"></span>
+                            <span class="custom-control-description">2학년</span>
+                    </label>
+            <label class="custom-control custom-radio">
+                            <input id="radio3" name="grade" type="radio" class="custom-control-input" value="3">
+                            <span class="custom-control-indicator"></span>
+                            <span class="custom-control-description">3학년</span>
+                    </label>
+            <!--번호-->
+            <div class="form-group">
+              <label class="form-control-label" for="studentId">번호</label>
+              <input type="text" class="form-control" id="studentId" name="studentId" required>
+            </div>
+            <!--이름-->
+            <div class="form-group">
+              <label class="form-control-label" for="studentName">이름</label>
+              <input type="text" class="form-control" id="studentName" name="studentName" required>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">취소</button>
+            <button type="submit" class="btn btn-primary">가입하기</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <!-- Alert 모달 -->
+  <div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" style="display: none;"
+    aria-hidden="true" id="alertModal">
+    <div class="modal-dialog modal-sm">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title" id="mySmallModalLabel">alert</h4>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                  </button>
+        </div>
+        <div class="modal-body">
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-dismiss="modal">확인</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- bootstarp JavaScript -->
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4"
+    crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1"
+    crossorigin="anonymous"></script>
+
+  <!--회원가입 로직-->
+  <script src="../js/myblog.js"></script>
+</body>
+
+</html>

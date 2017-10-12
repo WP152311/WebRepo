@@ -37,13 +37,13 @@ public class SignUpServlet extends HttpServlet {
 		String name = request.getParameter("name");
 		String nickname = request.getParameter("nickname");
 		
-		boolean result = true;
+		boolean result = false;
 		
 		if (result) {
 			RequestDispatcher rd = request.getRequestDispatcher("/jsp/login.jsp");
 			rd.forward(request, response);
 		} else {
-			request.setAttribute("error", Boolean.valueOf(true));
+			
 			request.setAttribute("errorId", id);
 			request.setAttribute("errorPwd", pwd);
 			request.setAttribute("errorName", name);

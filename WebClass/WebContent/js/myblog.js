@@ -1,40 +1,46 @@
-$(document).ready(function () {
-    $('#regForm').submit(function () {
-        // 자동 submit되는 기능을 막음
-            event.preventDefault();
-
-            var id = document.getElementById('id').value;
-            var password = document.getElementById('password').value;
-            var classroom = $("select[name=class]").val();
-            var grade = $(":input:radio[name=grade]:checked").val();
-            var studentId = document.getElementById('studentId').value;
-            var studentName = document.getElementById('studentName').value;
-        
-            console.log('id : ' + id);
-            console.log('password : ' + password);
-            console.log('classroom : ' + classroom);
-            console.log('grade : ' + grade);
-            console.log('studentId : ' + studentId);
-            console.log('studentName : ' + studentName);
-        
-            // 입력칸 중 빈칸이 있는 경우
-            if (id == "" || password == "" || classroom == "" || grade == "" || studentId == "" || studentName == "") {
-                return;
-            }
-
-            // 더미서버로 회원가입 정보 보내기
-            $.post("http://httpbin.org/post",
-                { id: id, password: password, classroom: classroom, grade: grade, studentId: studentId, studentName: studentName }, function (data) {
-                    // 회원가입에 성공했으므로 회원가입 Modal 숨기기
-                    $('#regModal').modal('hide');
-                    // 회원가입 성공 Modal 띄우기
-                    alertModal("회원가입 정보", data.form.studentName + "님 회원가입되었습니다.");
-                    // 회원가입 성공했으므로 폼에 있는 데이터 삭제
-                    document.regForm.reset();
-                });
-    });
-    
-});
+//$(document).ready(function () {
+//    $('#regForm').submit(function () {
+//        // 자동 submit되는 기능을 막음
+//            event.preventDefault();
+//
+//            var id = document.getElementById('id').value;
+//            var password = document.getElementById('password').value;
+//            var classroom = $("select[name=class]").val();
+//            var grade = $(":input:radio[name=grade]:checked").val();
+//            var studentId = document.getElementById('studentId').value;
+//            var studentName = document.getElementById('studentName').value;
+//        
+//            console.log('id : ' + id);
+//            console.log('password : ' + password);
+//            console.log('classroom : ' + classroom);
+//            console.log('grade : ' + grade);
+//            console.log('studentId : ' + studentId);
+//            console.log('studentName : ' + studentName);
+//        
+//            // 입력칸 중 빈칸이 있는 경우
+//            if (id == "" || password == "" || classroom == "" || grade == "" || studentId == "" || studentName == "") {
+//                return;
+//            }
+//
+//            // 더미서버로 회원가입 정보 보내기
+//            $.post("/WebClass/bloglogin",
+//                { id: id, password: password, classroom: classroom, grade: grade, studentId: studentId, studentName: studentName }, function (data) {
+//                    if (data.msg == "success") { // 회원가입 성공한 경우
+//                    	// 회원가입에 성공했으므로 회원가입 Modal 숨기기
+//                        $('#regModal').modal('hide');
+//                        // 회원가입 성공 Modal 띄우기
+//                        alertModal("회원가입 정보", data.user.studentName + "님 회원가입되었습니다.");
+//                        // 회원가입 성공했으므로 폼에 있는 데이터 삭제
+//                        document.regForm.reset();
+//                    } else if (data.msg == "fail") { // 회원가입에 실패한 경우
+//                    	alertModal("회원가입 정보", "회원가입에 실패했습니다.");
+//                    } else { // 그 이외 경우(EX)서버가 다운된 경우)
+//                    	alertModal("회원가입 정보", "알 수 없는 오류가 발생했습니다. ");
+//                    }
+//                });
+//    });
+//    
+//});
 
 // function registration() {
 //     var id = document.getElementById('id').value;
@@ -65,10 +71,10 @@ $(document).ready(function () {
 
 // }
 
-function regModal() {
-    var regModal = $('#regModal');
-    regModal.modal();
-}
+//function regModal() {
+//    var regModal = $('#regModal');
+//    regModal.modal();
+//}
 
 function checkSession() {
     var changableForm = document.getElementById('changableForm');
